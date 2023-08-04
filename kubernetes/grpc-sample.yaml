@@ -1,0 +1,82 @@
+# Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+# SPDX-License-Identifier: MIT-0
+
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: grpcserver
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: grpcserver
+  namespace: grpcserver
+spec:
+  selector:
+    matchLabels:
+      app: grpcserver
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: grpcserver
+    spec:
+      containers:
+      - name: grpc-demo
+        image: ${EcrUrl}
+        imagePullPolicy: Always
+        ports:
+        - name: grpc-api
+          containerPort: 9000
+        env:
+        - name: POD_IP
+          valueFrom:
+            fieldRef:
+              fieldPath: status.podIP
+      restartPolicy: Always
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: grpcserver
+  namespace: grpcserver
+spec:
+  # bypass kube-proxy
+  ports:
+  - port: 9000
+    protocol: TCP
+    targetPort: 9000
+  clusterIP: None
+  selector:
+    app: grpcserver
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    alb.ingress.kubernetes.io/ssl-redirect: "443"
+    alb.ingress.kubernetes.io/backend-protocol-version: "GRPC"
+    alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80}, {"HTTPS":443}]'
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/target-type: ip
+    alb.ingress.kubernetes.io/certificate-arn: ${AcmArn}
+    alb.ingress.kubernetes.io/healthcheck-protocol: HTTP
+  labels:
+    app: grpcserver
+    environment: dev
+  name: grpcserver
+  namespace: grpcserver
+spec:
+  ingressClassName: alb
+  rules:
+    host: ${DnsHostName}
+    http:
+      paths:
+      - backend:
+          service:
+            name: grpcserver
+            port:
+              number: 9000
+        path: /
+        pathType: Prefix

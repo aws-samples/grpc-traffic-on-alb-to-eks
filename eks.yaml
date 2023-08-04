@@ -1,0 +1,17 @@
+# Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+# SPDX-License-Identifier: MIT-0
+
+# A simple example of ClusterConfig object with private nodegroups:
+--- 
+apiVersion: eksctl.io/v1alpha5
+kind: ClusterConfig
+
+metadata:
+  name: eks
+  region: us-west-2
+
+nodeGroups:
+  - name: ng-private
+    instanceType: m5.large
+    desiredCapacity: 3
+    privateNetworking: true
