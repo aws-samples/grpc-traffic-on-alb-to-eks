@@ -24,7 +24,7 @@ spec:
     spec:
       containers:
       - name: grpc-demo
-        image: ${EcrUrl}
+        image: ${ECR_URL}
         imagePullPolicy: Always
         ports:
         - name: grpc-api
@@ -60,7 +60,7 @@ metadata:
     alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80}, {"HTTPS":443}]'
     alb.ingress.kubernetes.io/scheme: internet-facing
     alb.ingress.kubernetes.io/target-type: ip
-    alb.ingress.kubernetes.io/certificate-arn: ${AcmArn}
+    alb.ingress.kubernetes.io/certificate-arn: ${ACM_ARN}
     alb.ingress.kubernetes.io/healthcheck-protocol: HTTP
   labels:
     app: grpcserver
@@ -70,7 +70,7 @@ metadata:
 spec:
   ingressClassName: alb
   rules:
-    host: ${DnsHostName}
+    host: ${DNS_HOSTNAME}
     http:
       paths:
       - backend:
