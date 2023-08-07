@@ -4,7 +4,7 @@ This repository contains an example project for deploying a gRPC service on Amaz
 
 ## About this Repo
 
-This repo is our offical example for deploying a gRPC service on Amazon EKS and exposing it via an Application Load Balancer (ALB). It is intended to be used as a reference for building your own gRPC service on Amazon EKS.
+This repo is an example for deploying a gRPC service on Amazon EKS and exposing it via an Application Load Balancer (ALB). It is intended to be used as a reference for building your own gRPC service on Amazon EKS and access it via ALB. 
 
 We welcome contributions to this repo in the form of fixes to existing examples or addition of new examples. For more information on contributing, please see [CONTRIBUTING](CONTRIBUTING.md#security-issue-notifications) for more information.
 
