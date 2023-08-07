@@ -8,6 +8,10 @@ This repo is an example for deploying a gRPC service on Amazon EKS and exposing 
 
 We welcome contributions to this repo in the form of fixes to existing examples or addition of new examples. For more information on contributing, please see [CONTRIBUTING](CONTRIBUTING.md#security-issue-notifications) for more information.
 
+## Architecture
+![alt text](static/architecture.png)
+
+
 ## Examples
 
 Use the below commands to deploy the sample. Make sure you substitute the values accordingly. 
