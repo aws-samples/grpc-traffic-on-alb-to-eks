@@ -12,19 +12,20 @@ We welcome contributions to this repo in the form of fixes to existing examples 
 
 Use the below commands to deploy the sample. Make sure you substitute the values accordingly. 
 
-export ECR_URL="<AccountId>.dkr.ecr.<AWS-Region>.amazonaws.com/helloworld-grpc:1.0"
+```export ECR_URL="<AccountId>.dkr.ecr.<AWS-Region>.amazonaws.com/helloworld-grpc:1.0"
 export ACM_ARN="arn:aws:acm:<AWS-Region>:<AccountId>:certificate/dd12f017-7caf-410c-b30f-646fff5b3f96"
 export DNS_HOSTNAME="<DNS-HostName>"
 envsubst < ./kubernetes/grpc-sample.yaml | kubectl apply -f -
+```
 
 If you dont have `envsubst`, then replace the below variables placeholders in the `kubernetes/grpc-sample.yaml` file with the actual values: 
 
-${ECR_URL} with ECR image Uri --> "<AccountId>.dkr.ecr.<AWS-Region>.amazonaws.com/helloworld-grpc:1.0"
+```${ECR_URL} with ECR image Uri --> "<AccountId>.dkr.ecr.<AWS-Region>.amazonaws.com/helloworld-grpc:1.0"
 
 ${ACM_ARN} with ACM ARN --> "arn:aws:acm:<AWS-Region>:<AccountId>:certificate/dd12f017-7caf-410c-b30f-646fff5b3f96"
 
 ${DNS_HOSTNAME} with a valid DNS Host Name in the following example format --> "www.example.com" or "amazon.com" 
-
+```
 ## License
 
 This library is licensed under the MIT-0 License. See the LICENSE file.
