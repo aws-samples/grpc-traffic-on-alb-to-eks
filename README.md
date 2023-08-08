@@ -38,6 +38,12 @@ ${ACM_ARN} with ACM ARN --> "arn:aws:acm:<AWS-Region>:<AccountId>:certificate/<c
 
 ${DNS_HOSTNAME} with a valid DNS Host Name in the following example format --> "www.example.com" or "amazon.com" 
 ```
+Deploy using kubectl
+
+```
+kubectl apply -f./ kubernetes/grpc-sample.yaml
+```
+
 ## License
 
 This library is licensed under the MIT-0 License. See the LICENSE file.
