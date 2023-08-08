@@ -38,7 +38,7 @@ ${ACM_ARN} with ACM ARN --> "arn:aws:acm:<AWS-Region>:<AccountId>:certificate/<c
 
 ${DNS_HOSTNAME} with a valid DNS Host Name in the following example format --> "www.example.com" or "amazon.com" 
 ```
-Deploy using kubectl
+Deploy using [`kubectl`](https://kubernetes.io/docs/reference/kubectl/)
 
 ```
 kubectl apply -f ./kubernetes/grpc-sample.yaml
