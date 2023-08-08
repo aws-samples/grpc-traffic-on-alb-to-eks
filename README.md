@@ -41,7 +41,7 @@ ${DNS_HOSTNAME} with a valid DNS Host Name in the following example format --> "
 Deploy using kubectl
 
 ```
-kubectl apply -f./ kubernetes/grpc-sample.yaml
+kubectl apply -f ./kubernetes/grpc-sample.yaml
 ```
 
 ## License
