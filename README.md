@@ -29,20 +29,21 @@ export DNS_HOSTNAME="<DNS-HostName>"
 envsubst < ./kubernetes/grpc-sample.yaml | kubectl apply -f -
 ```
 
-If you dont have [`envsubst`](https://www.gnu.org/software/gettext/manual/html_node/envsubst-Invocation.html), then replace the below variables placeholders in the `kubernetes/grpc-sample.yaml` file with the actual values: 
+If you dont have [`envsubst`](https://www.gnu.org/software/gettext/manual/html_node/envsubst-Invocation.html), then 
+  * Replace the below variables placeholders in the `kubernetes/grpc-sample.yaml` file with the actual values: 
 
-```
-${ECR_URL} with ECR image Uri --> "<AccountId>.dkr.ecr.<AWS-Region>.amazonaws.com/helloworld-grpc:1.0"
-
-${ACM_ARN} with ACM ARN --> "arn:aws:acm:<AWS-Region>:<AccountId>:certificate/<certificate_ID>"
-
-${DNS_HOSTNAME} with a valid DNS Host Name in the following example format --> "www.example.com" or "amazon.com" 
-```
-Deploy using [`kubectl`](https://kubernetes.io/docs/reference/kubectl/)
-
-```
-kubectl apply -f ./kubernetes/grpc-sample.yaml
-```
+  ```
+  ${ECR_URL} with ECR image Uri --> "<AccountId>.dkr.ecr.<AWS-Region>.amazonaws.com/helloworld-grpc:1.0"
+  
+  ${ACM_ARN} with ACM ARN --> "arn:aws:acm:<AWS-Region>:<AccountId>:certificate/<certificate_ID>"
+  
+  ${DNS_HOSTNAME} with a valid DNS Host Name in the following example format --> "www.example.com" or "amazon.com" 
+  ```
+  * Deploy using [`kubectl`](https://kubernetes.io/docs/reference/kubectl/)
+  
+  ```
+  kubectl apply -f ./kubernetes/grpc-sample.yaml
+  ```
 
 ## License
 
