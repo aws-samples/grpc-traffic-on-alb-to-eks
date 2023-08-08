@@ -26,7 +26,7 @@ If you dont have `envsubst`, then replace the below variables placeholders in th
 
 ```${ECR_URL} with ECR image Uri --> "<AccountId>.dkr.ecr.<AWS-Region>.amazonaws.com/helloworld-grpc:1.0"
 
-${ACM_ARN} with ACM ARN --> "arn:aws:acm:<AWS-Region>:<AccountId>:certificate/dd12f017-7caf-410c-b30f-646fff5b3f96"
+${ACM_ARN} with ACM ARN --> "arn:aws:acm:<AWS-Region>:<AccountId>:certificate/<unique-string>"
 
 ${DNS_HOSTNAME} with a valid DNS Host Name in the following example format --> "www.example.com" or "amazon.com" 
 ```
